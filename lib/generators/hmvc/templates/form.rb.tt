@@ -1,0 +1,6 @@
+# frozen_string_literal: true
+<%= add_comment_timestamp %>
+<%= add_comment_creator %>
+class <%= class_name %>::<%= @action.humanize %>Form < ApplicationForm
+  attributes :id
+end
