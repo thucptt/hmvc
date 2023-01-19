@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-
+<%= add_comment_timestamp %>
+<%= add_comment_creator %>
 Hmvc.setup do |config|
   # Automatically create the form files when you run the generate command. Default is true
   # config.auto_create_form = true

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-
+<%= add_comment_timestamp %>
+<%= add_comment_creator %>
 class ApplicationForm
   include ActiveModel::Model
   include ActiveModel::Attributes

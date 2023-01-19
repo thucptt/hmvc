@@ -12,11 +12,21 @@ module Hmvc
       end
 
       def copy_application_operator
-        template "application_operator.rb", "app/operators/application_operator.rb"
+        template "application_operation.rb", "app/operations/application_operator.rb"
       end
 
       def copy_application_form
         template "application_form.rb", "app/forms/application_form.rb"
+      end
+
+      private
+
+      def add_comment_timestamp
+        "# Created at: #{Time.now.strftime("%Y-%m-%d %H:%M %z")}"
+      end
+
+      def add_comment_creator
+        "# Creator: #{`git config user.email`}"
       end
     end
   end
