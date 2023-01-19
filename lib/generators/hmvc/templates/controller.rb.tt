@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+<%= add_comment_timestamp %>
+<%= add_comment_creator %>
+class <%= class_name %>Controller < ApplicationController<% options[:action].split(' ').each do |action| %>
+  <%= add_comment_endpoint(action) %>
+  def <%= action %>
+    operator = <%= class_name %>::<%= action.humanize %>Operation.new(params)
+    operator.call
+  end
+<% end %>end
