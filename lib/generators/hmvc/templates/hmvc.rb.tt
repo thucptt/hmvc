@@ -1,12 +1,14 @@
 # frozen_string_literal: true
-<%= add_comment_timestamp %>
-<%= add_comment_creator %>
-Hmvc.setup do |config|
+<%= add_file_traces %>
+Hmvc.configure do |config|
+  # Save author name and timestamp to file. Default is true
+  # config.file_traces = true
+
   # Automatically create the form files when you run the generate command. Default is true
   # config.auto_create_form = true
 
   # Method when creating the form files. Default is %w[new create edit update]
-  # config.form_actions = %w[new create edit update]
+  # config.action_form = %w[new create edit update]
 
   # The form files's parent class. Default is ApplicationForm
   # config.parent_form = "ApplicationForm"
@@ -18,8 +20,8 @@ Hmvc.setup do |config|
   # config.parent_controller = "ApplicationController"
 
   # Method when creating the controller files. Default is %w[index show new create edit update destroy]
-  # config.controller_actions = %w[index show new create edit update destroy]
+  # config.action_controller = %w[index show new create edit update destroy]
 
-  # Save author name. Default is true
-  # config.author_comment = true
-end
+  # Method when creating the view files. Default is %w[index show new edit]
+  # config.action_view = %w[index show new edit]
+end if Rails.env.development?
