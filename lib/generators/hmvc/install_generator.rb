@@ -3,7 +3,7 @@
 module Hmvc
   module Generators
     class InstallGenerator < Rails::Generators::Base
-      desc "Generate base files of the HMVC structure."
+      desc "Generate base files of the HMVC structure"
 
       source_root File.expand_path("templates", __dir__)
 
@@ -19,14 +19,22 @@ module Hmvc
         template "application_form.rb", "app/forms/application_form.rb"
       end
 
-      private
-
-      def add_comment_timestamp
-        "# Created at: #{Time.now.strftime("%Y-%m-%d %H:%M %z")}"
+      def copy_exception
+        template "exception.rb", "lib/error_handler/exception.rb"
       end
 
-      def add_comment_creator
-        "# Creator: #{`git config user.email`}"
+      def copy_error_resource
+        template "error_resource.rb", "lib/error_handler/error_resource.rb"
+      end
+
+      def copy_error_response
+        template "error_response.rb", "lib/error_handler/error_response.rb"
+      end
+
+      private
+
+      def add_file_traces
+        "# Created at: #{Time.now.strftime("%Y-%m-%d %H:%M %z")}\n# Creator: #{`git config user.email`}"
       end
     end
   end
