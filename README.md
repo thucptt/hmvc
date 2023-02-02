@@ -1,43 +1,138 @@
-# Hmvc
+# HMVC
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hmvc`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Summary
 
-TODO: Delete this and the text above, and describe your gem
+- HMVC is the high-level model of MVC (MVC high-level structure)
+
+- HMVC makes it easy to manage source code and develop projects
+
+## Features
+
+- Generate controller file
+- Generate operations file
+- Generate forms file
+- Generate views file
+- Add file creator and creation date
+
+## Compatibility
+  
+  - Ruby `>= 2.6`
+  
+  - Rails `>= 6.0`
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile
 
 ```ruby
-gem 'hmvc'
+group :development do
+  gem 'hmvc', git: 'git@github.com:TOMOSIA-VIETNAM/hmvc.git'
+end
 ```
 
-And then execute:
+Then execute
 
     $ bundle install
+    
+And run
 
-Or install it yourself as:
-
-    $ gem install hmvc
+    $ rails g hmvc:install
+    
+```
+create  config/initializers/hmvc.rb
+create  app/operations/application_operator.rb
+create  app/forms/application_form.rb
+create  lib/error_handler/exception.rb
+create  lib/error_handler/error_resource.rb
+create  lib/error_handler/error_response.rb
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### Default generator
 
-## Development
+```
+rails g hmvc controller_name
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Example
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+rails g hmvc admin
+```
+
+```
+create  app/controllers/admin_controller.rb
+create  app/operations/admin/index_operator.rb
+create  app/operations/admin/show_operator.rb
+create  app/operations/admin/new_operator.rb
+create  app/operations/admin/create_operator.rb
+create  app/operations/admin/edit_operator.rb
+create  app/operations/admin/update_operator.rb
+create  app/operations/admin/destroy_operator.rb
+create  app/forms/admin/new_form.rb
+create  app/forms/admin/create_form.rb
+create  app/forms/admin/edit_form.rb
+create  app/forms/admin/update_form.rb
+create  app/views/admin/index.html.erb
+create  app/views/admin/show.html.erb
+create  app/views/admin/new.html.erb
+create  app/views/admin/edit.html.erb
+```
+
+### Options
+
+## Configuration
+
+If you want to change the default value when creating the file, please uncomment and update
+
+- config/initializers/hmvc.rb
+
+```ruby
+# frozen_string_literal: true
+# Created at: 2023-02-02 17:01 +0700
+# Creator: thuc.phan@tomosia.com
+
+Hmvc.configure do |config|
+  # Save author name and timestamp to file. Default is true
+  # config.file_traces = true
+
+  # Automatically create the form files when you run the generate command. Default is true
+  # config.auto_create_form = true
+
+  # Method when creating the form files. Default is %w[new create edit update]
+  # config.action_form = %w[new create edit update]
+
+  # The form files's parent class. Default is ApplicationForm
+  # config.parent_form = "ApplicationForm"
+
+  # The operation files's parent class. Default is ApplicationOperation
+  # config.parent_operation = "ApplicationOperation"
+
+  # The controller files's parent class of controller. Default is ApplicationController
+  # config.parent_controller = "ApplicationController"
+
+  # Method when creating the controller files. Default is %w[index show new create edit update destroy]
+  # config.action_controller = %w[index show new create edit update destroy]
+
+  # Method when creating the view files. Default is %w[index show new edit]
+  # config.action_view = %w[index show new edit]
+end if Rails.env.development?
+```
 
 ## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hmvc. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/hmvc/blob/master/CODE_OF_CONDUCT.md).
+  
+  - Thuc Phan T. / thuc.phan@tomosia.com
+  - Minh Tang Q. / minh.tang@tomosia.com
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem `hmvc` is copyright TOMOSIA VIET NAM CO., LTD
 
-## Code of Conduct
+## About [TOMOSIA VIET NAM CO., LTD](https://www.tomosia.com/)
 
-Everyone interacting in the Hmvc project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/hmvc/blob/master/CODE_OF_CONDUCT.md).
+A company that creates new value together with customers and lights the light of happiness
+
+【一緒に】【ハッピー】【ライトアップ】
+
+お客様と共に新たな価値を生み出し幸せの明かりを灯す会社、トモシア
