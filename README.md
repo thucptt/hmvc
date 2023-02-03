@@ -128,6 +128,20 @@ rails g hmvc admin --sv
 
 Or change configuration `action_view = %w[]`
 
+#### 8. Using error handling module. Recommended for API project
+
+- config/application.rb
+
+```ruby
+config.autoload_paths << Rails.root.join('lib')
+```
+
+- application_controller.rb
+
+```ruby
+include ErrorHandler::ErrorResponse
+```
+
 ## Configuration
 
 If you want to change the default value when creating the file, please uncomment and update
