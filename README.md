@@ -82,37 +82,37 @@ create  app/views/admin/edit.html.erb
 
 ### Options
 
-#### 1. If you want to create with action other than default. You can use option `--action-controller` or `--ac`
+##### 1. If you want to create with action other than default. You can use option `--action-controller` or `--ac`
 
 ```
 rails g hmvc admin --ac index show list detail selection
 ```
 
-#### 2. If you want to create with action other than default. You can use option `--action-form` or `--af`
+##### 2. If you want to create with action other than default. You can use option `--action-form` or `--af`
 
 ```
 rails g hmvc admin --ac index show list detail selection --af index show list
 ```
 
-#### 3. If you want to create with parent controller other than default. You can use option `--parent-controller` or `--pc`
+##### 3. If you want to create with parent controller other than default. You can use option `--parent-controller` or `--pc`
 
 ```
 rails g hmvc admin --pc PersonController
 ```
 
-#### 4. If you want to create with parent operation other than default. You can use option `--parent-operation` or `--po`
+##### 4. If you want to create with parent operation other than default. You can use option `--parent-operation` or `--po`
 
 ```
 rails g hmvc admin --po PersonOperation
 ```
 
-#### 5. If you want to create with parent operation other than default. You can use option `--parent-form` or `--pf`
+##### 5. If you want to create with parent operation other than default. You can use option `--parent-form` or `--pf`
 
 ```
 rails g hmvc admin --pf PersonForm
 ```
 
-#### 6. If you want to skip creating the forms file when generate. You can use option `--skip-form` or `--sf`
+##### 6. If you want to skip creating the forms file when generate. You can use option `--skip-form` or `--sf`
 
 ```
 rails g hmvc admin --sf
@@ -120,7 +120,7 @@ rails g hmvc admin --sf
 
 Or change configuration `auto_create_form = false`
 
-#### 7. If you want to skip creating the views file when generate. You can use option `--skip-view` or `--sv`
+##### 7. If you want to skip creating the views file when generate. You can use option `--skip-view` or `--sv`
 
 ```
 rails g hmvc admin --sv
@@ -128,7 +128,7 @@ rails g hmvc admin --sv
 
 Or change configuration `action_view = %w[]`
 
-#### 8. Using error handling module. Recommended for API project
+##### 8. Using error handling module. Recommended for API project
 
 - config/application.rb
 
