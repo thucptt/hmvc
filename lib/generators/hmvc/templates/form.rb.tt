@@ -1,5 +1,0 @@
-# frozen_string_literal: true
-<%= add_file_traces %>
-class <%= class_name %>::<%= @action.humanize %>Form < <%= options[:parent_form] %>
-  attributes :id
-end
