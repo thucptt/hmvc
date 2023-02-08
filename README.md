@@ -196,3 +196,44 @@ A company that creates new value together with customers and lights the light of
 【一緒に】【ハッピー】【ライトアップ】
 
 お客様と共に新たな価値を生み出し幸せの明かりを灯す会社、トモシア
+
+## Test and debug on development environment
+
+- Add gem and run `bundle` (link to gem hmvc project)
+
+```ruby
+group :development do
+  gem 'hmvc', path: '../../Projects/hmvc'
+end
+```
+
+- Add `byebug` to the line you want to test
+
+```ruby
+def create_controller
+  byebug
+  template "controller.rb", File.join("app/controllers/#{class_path.join("/")}", "#{file_name}_controller.rb")
+end
+```
+
+- Run command generator at Rails project terminal
+
+```
+rails g hmvc admin
+```
+
+```
+   11:   class_option :skip_form,         type: :boolean, default: false,                                aliases: "--sf"
+   12:   class_option :skip_view,         type: :boolean, default: false,                                aliases: "--sv"
+   13:
+   14:   def create_controller
+   15:     byebug
+=> 16:     template "controller.rb", File.join("app/controllers/#{class_path.join("/")}", "#{file_name}_controller.rb")
+   17:   end
+   18:
+   19:   def create_operation
+   20:     options[:action_controller].each do |action|
+(byebug) options[:action_controller]
+["index", "show", "new", "create", "edit", "update", "destroy"]
+(byebug)
+```
